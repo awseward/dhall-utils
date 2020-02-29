@@ -1,5 +1,4 @@
-let Text/concatSep =
-      https://raw.githubusercontent.com/dhall-lang/dhall-lang/v13.0.0/Prelude/Text/concatSep sha256:e4401d69918c61b92a4c0288f7d60a6560ca99726138ed8ebc58dca2cd205e58
+let Text/concatSep = (../imports.dhall).Text/concatSep
 
 let Optional/listWhereSome = ./listWhereSome.dhall
 
