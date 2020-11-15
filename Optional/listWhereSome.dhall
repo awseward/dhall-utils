@@ -1,23 +1,7 @@
-{- Returns only the elements in a list of Optionals which are Some, unwrapped -}
+''
+It turns out someone else also had a need for this and added it to the Prelude.
 
-let listWhereSome
-    : ∀(a : Type) → List (Optional a) → List a
-    =   λ(a : Type)
-      → λ(xOpts : List (Optional a))
-      → List/fold
-          (Optional a)
-          xOpts
-          (List a)
-          (   λ(xOpt : Optional a)
-            → λ(xs : List a)
-            → merge { None = xs, Some = λ(x : a) → [ x ] # xs } xOpt
-          )
-          ([] : List a)
+What you'll want to use instead of this is Prelude.List.unpackOptionals.
 
-let _example0 = assert : listWhereSome Bool [ None Bool ] ≡ ([] : List Bool)
-
-let _example0 =
-        assert
-      : listWhereSome Text [ Some "a", None Text, Some "c" ] ≡ [ "a", "c" ]
-
-in  listWhereSome
+(see: https://github.com/dhall-lang/dhall-lang/pull/991)
+''

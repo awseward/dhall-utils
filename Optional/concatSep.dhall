@@ -1,11 +1,11 @@
 let Text/concatSep = (../imports.dhall).Text/concatSep
 
-let Optional/listWhereSome = ./listWhereSome.dhall
+let List/unpackOptionals = (../imports.dhall).List/unpackOptionals
 
 let concatSep =
-        λ(separator : Text)
-      → λ(xs : List (Optional Text))
-      → Text/concatSep separator (Optional/listWhereSome Text xs)
+      λ(separator : Text) →
+      λ(xs : List (Optional Text)) →
+        Text/concatSep separator (List/unpackOptionals Text xs)
 
 let _concatSep0 =
       assert : concatSep "," [ Some "a", None Text, Some "c" ] ≡ "a,c"
