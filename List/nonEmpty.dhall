@@ -1,9 +1,9 @@
 let List/null = (../imports.dhall).List/null
 
 let nonEmpty =
-        λ(a : Type)
-      → λ(xs : List a)
-      → if List/null a xs then None (List a) else Some xs
+      λ(a : Type) →
+      λ(xs : List a) →
+        if List/null a xs then None (List a) else Some xs
 
 let _example0 =
       let xs = [] : List Text in assert : nonEmpty Text xs ≡ None (List Text)
