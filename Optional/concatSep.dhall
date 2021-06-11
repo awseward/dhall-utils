@@ -1,11 +1,13 @@
-let Text/concatSep = (../imports.dhall).Text/concatSep
-
-let List/unpackOptionals = (../imports.dhall).List/unpackOptionals
+let Prelude = (../imports.dhall).Prelude
 
 let concatSep =
       λ(separator : Text) →
-      λ(xs : List (Optional Text)) →
-        Text/concatSep separator (List/unpackOptionals Text xs)
+        Prelude.Function.compose
+          (List (Optional Text))
+          (List Text)
+          Text
+          (Prelude.List.unpackOptionals Text)
+          (Prelude.Text.concatSep separator)
 
 let _concatSep0 =
       assert : concatSep "," [ Some "a", None Text, Some "c" ] ≡ "a,c"
