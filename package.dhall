@@ -1,1 +1,4 @@
-{ List = ./List/package.dhall, Optional = ./Optional/package.dhall }
+{ List = ./List/package.dhall
+, Optional = ./Optional/package.dhall
+, Nonempty = (./imports.dhall).NonEmpty
+}
