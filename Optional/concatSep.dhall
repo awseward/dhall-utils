@@ -1,7 +1,8 @@
 let Prelude = (../imports.dhall).Prelude
 
-let concatSep =
-      λ(separator : Text) →
+let concatSep
+    : ∀(separator : Text) → List (Optional Text) → Text
+    = λ(separator : Text) →
         Prelude.Function.compose
           (List (Optional Text))
           (List Text)
