@@ -1,1 +1,1 @@
-{ nonEmpty = ./nonEmpty.dhall }
+{=}
