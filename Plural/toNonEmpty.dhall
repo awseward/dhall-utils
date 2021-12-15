@@ -2,7 +2,7 @@ let Plural = ./Type.dhall
 
 let make = ./make.dhall
 
-let NonEmpty = (../imports.dhall).NonEmpty
+let NonEmpty = (../imports.dhall).Prelude.NonEmpty
 
 let toNonEmpty
     : ∀(a : Type) → Plural a → NonEmpty.Type a
